@@ -17,7 +17,7 @@
 
 ## 👨‍💻 About Alessandro Barbato
 
-Hi! I'm **Alessandro Barbato**, a 19-year-old Computer Science student at **Università degli Studi di Salerno (UNISA)** (Bachelor's Degree expected **2028**) and a Software Developer based in Salerno, Italy.
+Hi! I'm **Alessandro Barbato**, a 20-year-old Computer Science student at **Università degli Studi di Salerno (UNISA)** (Bachelor's Degree expected **2028**) and a Software Developer based in Salerno, Italy.
 
 In **2025**, I graduated with **96 / 100** from **Istituto Tecnico Basilio Focaccia** in Computer Science, building solid traditional engineering fundamentals in **C, Java, MySQL/SQL, HTML5, CSS3, and JavaScript**.
 

@@ -58,14 +58,14 @@ export default function TerminalLab({ t, lang = 'it' }) {
           type: 'response',
           text: lang === 'it'
             ? `[ALESSANDRO BARBATO]
-• Età: 19 anni | Salerno, Italia
+• Età: 20 anni | Salerno, Italia
 • Email: al3xx.main1@gmail.com
 • Università: Università degli Studi di Salerno (UNISA) - Laurea Prevista 2028
 • Diploma: Istituto Tecnico Basilio Focaccia - Voto: 96 / 100
 • Lingue: Italiano (Madrelingua) | Inglese (Fluente - Certificato Cambridge B2)
 • Tratti: Veloce ad imparare, eccellente gestione dello stress, rispetto rigoroso delle deadlines.`
             : `[ALESSANDRO BARBATO]
-• Age: 19 | Salerno, Italy
+• Age: 20 | Salerno, Italy
 • Email: al3xx.main1@gmail.com
 • University: Università degli Studi di Salerno (UNISA) - Degree expected 2028
 • Diploma: Istituto Tecnico Basilio Focaccia - Grade: 96 / 100
