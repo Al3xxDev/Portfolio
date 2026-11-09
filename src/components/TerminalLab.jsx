@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Terminal, CornerDownLeft, Trash2, Cpu } from 'lucide-react';
+import { Terminal, CornerDownLeft, Trash2 } from 'lucide-react';
 import { soundFX } from '../utils/sound';
 
 export default function TerminalLab({ t, lang = 'it' }) {
@@ -7,12 +7,9 @@ export default function TerminalLab({ t, lang = 'it' }) {
   const [history, setHistory] = useState([
     { type: 'system', text: t.terminal.welcomeMsg }
   ]);
-  const [isTyping, setIsTyping] = useState(false);
-  const terminalEndRef = useRef(null);
   const terminalBoxRef = useRef(null);
 
   useEffect(() => {
-    // Only scroll the internal terminal container, NOT the window
     if (terminalBoxRef.current) {
       terminalBoxRef.current.scrollTop = terminalBoxRef.current.scrollHeight;
     }
@@ -34,22 +31,49 @@ export default function TerminalLab({ t, lang = 'it' }) {
           text: lang === 'it'
             ? `Comandi disponibili:
   • help       : Mostra questa guida dei comandi
-  • bio        : Informazioni su Alessandro Barbato
-  • skills     : Lista competenze tecniche e linguaggi
-  • projects   : Dettaglio progetti sviluppati
-  • ai         : Visione sull'uso dell'Intelligenza Artificiale
-  • contact    : Contatti diretti (Email / GitHub)
-  • hire       : Perché scegliere Alessandro nel tuo team
+  • services   : Piani e servizi di sviluppo web (Starter, Business, Premium)
+  • projects   : Dettaglio progetti e concept (Criscemunno, TocToc)
+  • bio        : Informazioni su Alessandro Barbato (UNISA, Focaccia, B2)
+  • skills     : Stack tecnologico e linguaggi verificati
+  • contact    : Informazioni per richiedere un preventivo o collaborare
   • clear      : Pulisce la schermata del terminale`
             : `Available commands:
   • help       : Display available commands
-  • bio        : Information about Alessandro Barbato
-  • skills     : Technical skills & core languages
-  • projects   : View developed projects
-  • ai         : Vision on AI implementation
-  • contact    : Direct contact details (Email / GitHub)
-  • hire       : Why hire Alessandro for your team
+  • services   : Web development service tiers (Starter, Business, Premium)
+  • projects   : Featured projects & concepts (Criscemunno, TocToc)
+  • bio        : Information about Alessandro Barbato (UNISA, Focaccia, B2)
+  • skills     : Verified tech stack & core languages
+  • contact    : Direct contact details and quote requests
   • clear      : Clear terminal screen`
+        });
+        break;
+
+      case 'services':
+        newHistory.push({
+          type: 'response',
+          text: lang === 'it'
+            ? `[SERVIZI DI SVILUPPO WEB]
+1. STARTER (Landing Page) — a partire da €299
+   • Presenza essenziale, veloce e focalizzata su conversioni e contatti
+   • Responsive 100%, modulo contatti, pulsante WhatsApp, SEO base
+
+2. BUSINESS (Sito Web Professionale) — a partire da €599 [CONSIGLIATO]
+   • Ideale per ristoranti, pizzerie, cocktail bar e PMI
+   • Menu digitale interattivo, galleria fotografica, Google Maps, SEO locale
+
+3. PREMIUM (Piattaforma Avanzata) — su misura
+   • Componenti UI avanzati, integrazioni terze parti, massime performance (Lighthouse 95+)`
+            : `[WEB DEVELOPMENT SERVICES]
+1. STARTER (Landing Page) — starting from €299
+   • Swift, conversion-focused online presence for local businesses & pros
+   • 100% responsive, contact form, WhatsApp button, baseline SEO
+
+2. BUSINESS (Professional Website) — starting from €599 [RECOMMENDED]
+   • Ideal for restaurants, pizzerias, cocktail bars, and SMBs
+   • Interactive digital menu, photo gallery, Google Maps, local SEO
+
+3. PREMIUM (Advanced Platform) — custom quote
+   • Complex UI interactions, external API integrations, top performance (Lighthouse 95+)`
         });
         break;
 
@@ -60,82 +84,57 @@ export default function TerminalLab({ t, lang = 'it' }) {
             ? `[ALESSANDRO BARBATO]
 • Età: 20 anni | Salerno, Italia
 • Email: al3xx.main1@gmail.com
-• Università: Università degli Studi di Salerno (UNISA) - Laurea Prevista 2028
-• Diploma: Istituto Tecnico Basilio Focaccia - Voto: 96 / 100
-• Lingue: Italiano (Madrelingua) | Inglese (Fluente - Certificato Cambridge B2)
-• Tratti: Veloce ad imparare, eccellente gestione dello stress, rispetto rigoroso delle deadlines.`
+• Ruolo: Web Developer & Studente di Informatica UNISA
+• Percorso: Laurea in Informatica UNISA (prevista 2028)
+• Diploma: Istituto Tecnico Basilio Focaccia — Voto: 96 / 100
+• Lingue: Italiano (Madrelingua) | Inglese (Certificato Cambridge B2)
+• Metodo: Sviluppo rigoroso assistito da Google Antigravity & AI per massima velocità e qualità.`
             : `[ALESSANDRO BARBATO]
 • Age: 20 | Salerno, Italy
 • Email: al3xx.main1@gmail.com
-• University: Università degli Studi di Salerno (UNISA) - Degree expected 2028
-• Diploma: Istituto Tecnico Basilio Focaccia - Grade: 96 / 100
-• Languages: Italian (Native) | English (Fluent - Cambridge B2 Certified)
-• Traits: Fast learner, high stress tolerance, strict deadline adherence.`
+• Role: Web Developer & CS Student at UNISA
+• Education: Bachelor's in Computer Science UNISA (Expected 2028)
+• High School Diploma: Istituto Tecnico Basilio Focaccia — Grade: 96 / 100
+• Languages: Italian (Native) | English (Cambridge B2 Certified)
+• Method: Rigorous engineering powered by Google Antigravity & AI workflows.`
         });
         break;
 
       case 'skills':
         newHistory.push({
           type: 'response',
-          text: `[STACK TECNICO]
-• Core Languages: C, Java, MySQL / SQL, HTML5, CSS3, JavaScript (ES6+)
-• Modern Stack: Node.js (in approfondimento), React, Tailwind CSS, Bootstrap, Vite, Git/GitHub
-• Certificazioni: Cambridge English B2 Certified
-• Soft Skills: Rapid Learning, Stress Resilience, Problem Solving, Deadline Adherence.`
+          text: `[STACK TECNOLOGICO VERIFICATO]
+• Frontend: React, Tailwind CSS, JavaScript (ES6+), HTML5 Semantico, CSS3, Bootstrap
+• Backend & DB: Node.js, MySQL / Relational SQL, C, Java
+• Tooling: Vite, Git & GitHub, Netlify, Google Antigravity
+• Certificazioni: Cambridge English Assessment B2 Certified`
         });
         break;
 
       case 'projects':
         newHistory.push({
           type: 'response',
-          text: `[PROGETTI REALIZZATI]
-1. Criscemunno Ristorante (Web App Ristorazione)
+          text: `[CONCEPT & PORTFOLIO]
+1. Criscemunno (Ristorante & Pizzeria — Concept Web)
    • Live: https://criscemunno.netlify.app/
-   • Stack: HTML5, CSS3, JavaScript, Netlify
+   • Stack: HTML5, CSS3, JavaScript, Responsive UX, Netlify
+   • Focus: Menu digitale, atmosfera ristorante, prenotazioni rapide
 
-2. TocToc Salerno (Menu Digitale & Web App)
+2. TocToc Salerno (Cocktail Bar & Nightlife — Concept Web)
    • Live: https://toctocsalerno.netlify.app/
-   • Stack: HTML5, CSS3, JavaScript, Netlify`
-        });
-        break;
-
-      case 'ai':
-        newHistory.push({
-          type: 'response',
-          text: lang === 'it'
-            ? `[AI AUGMENTATION STRATEGY]
-L'IA non sostituisce le mie competenze, le potenzia. Padroneggio i linguaggi tradizionali e la logica di programmazione, ed utilizzo modelli AI per:
-- Velocizzare la prototipazione e il boilerplating
-- Effettuare code-review e trovare bug al volo
-- Scalare l'apprendimento di nuovi framework in tempo record`
-            : `[AI AUGMENTATION STRATEGY]
-AI does not replace my coding skills, it amplifies them. I hold solid CS fundamentals while leveraging AI models to:
-- Accelerate prototyping and boilerplate setup
-- Perform real-time code reviews & bug hunting
-- Master new tech stacks in record time`
+   • Stack: HTML5, CSS3, JavaScript, UI/UX Design, Netlify
+   • Focus: Drink list notturna, atmosfera serale, prenotazione tavoli`
         });
         break;
 
       case 'contact':
         newHistory.push({
           type: 'response',
-          text: `[CONTATTI]
+          text: `[CONTATTI & PREVENTIVI]
 • Email: al3xx.main1@gmail.com
 • GitHub: https://github.com/Al3xxDev
-• Location: Salerno, Campania, Italia`
-        });
-        break;
-
-      case 'hire':
-        newHistory.push({
-          type: 'response',
-          text: lang === 'it'
-            ? `[WHY HIRE ALESSANDRO]
-Basi solide in C, Java, MySQL e Web Dev + Inglese B2 Cambridge + Devoto ad estendere lo stack a qualsiasi esigenza il lavoro richieda.
-Affiancato i primi tempi da un Senior Dev, assimilo lo stack aziendale in tempi record!`
-            : `[WHY HIRE ALESSANDRO]
-Solid core in C, Java, MySQL & Web Dev + Cambridge B2 English + Devoted to extending tech stack to any job demand.
-Guided during initial onboarding, I master company stacks in record time!`
+• Sede: Salerno, Campania, Italia
+• Per richiedere un preventivo gratuito, usa il modulo contatti in fondo alla pagina.`
         });
         break;
 
@@ -159,18 +158,21 @@ Guided during initial onboarding, I master company stacks in record time!`
   };
 
   return (
-    <section id="terminal" className="py-24 px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="terminal" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="max-w-5xl mx-auto flex flex-col gap-8">
         
         {/* Header */}
         <div className="text-center flex flex-col items-center gap-3">
           <span className="px-4 py-1.5 rounded-full glass-panel border-gold-500/30 text-xs font-mono text-gold-400 uppercase tracking-widest flex items-center gap-2">
             <Terminal className="w-3.5 h-3.5" />
-            <span>{t.terminal.title}</span>
+            <span>{t.terminal.badge}</span>
           </span>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-slate-100">
-            {t.terminal.subtitle}
+            {t.terminal.title}
           </h2>
+          <p className="text-xs sm:text-sm text-slate-400 font-mono">
+            {t.terminal.subtitle}
+          </p>
         </div>
 
         {/* Terminal Window Box */}
@@ -183,7 +185,7 @@ Guided during initial onboarding, I master company stacks in record time!`
               <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
               <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
               <span className="ml-3 text-xs text-slate-400 font-mono">
-                ai-terminal v1.0.0
+                al3xxdev-terminal v2.0.0
               </span>
             </div>
 
@@ -192,8 +194,9 @@ Guided during initial onboarding, I master company stacks in record time!`
                 soundFX.playClick();
                 setHistory([{ type: 'system', text: t.terminal.welcomeMsg }]);
               }}
-              className="p-1.5 rounded-md hover:bg-slate-800 text-slate-400 hover:text-gold-400 transition-colors"
-              title="Clear / Reset"
+              className="p-1.5 rounded-md hover:bg-slate-800 text-slate-400 hover:text-gold-400 transition-colors focus-visible:ring-2 focus-visible:ring-gold-400"
+              title="Reset terminal"
+              aria-label="Pulisci schermata terminale"
             >
               <Trash2 className="w-4 h-4" />
             </button>
@@ -202,7 +205,10 @@ Guided during initial onboarding, I master company stacks in record time!`
           {/* Terminal Console Output */}
           <div
             ref={terminalBoxRef}
-            className="p-6 h-80 sm:h-96 overflow-y-auto flex flex-col gap-3 bg-obsidian-950/90 text-slate-200"
+            tabIndex={0}
+            role="region"
+            aria-label="Output terminale interattivo"
+            className="p-6 h-80 sm:h-96 overflow-y-auto flex flex-col gap-3 bg-obsidian-950/90 text-slate-200 focus:outline-none"
           >
             {history.map((item, index) => (
               <div
@@ -220,7 +226,6 @@ Guided during initial onboarding, I master company stacks in record time!`
                 {item.text}
               </div>
             ))}
-            <div ref={terminalEndRef} />
           </div>
 
           {/* Terminal Input Line */}
@@ -228,17 +233,19 @@ Guided during initial onboarding, I master company stacks in record time!`
             onSubmit={handleCommand}
             className="px-6 py-4 bg-obsidian-900/80 border-t border-slate-800 flex items-center gap-3"
           >
-            <span className="text-gold-400 font-bold">$</span>
+            <span className="text-gold-400 font-bold" aria-hidden="true">$</span>
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder={t.terminal.placeholder}
+              aria-label="Riga di comando del terminale"
               className="flex-1 bg-transparent text-slate-100 placeholder-slate-500 focus:outline-none font-mono text-xs sm:text-sm"
             />
             <button
               type="submit"
-              className="p-2 rounded-lg bg-gold-500/20 text-gold-400 hover:bg-gold-500 hover:text-obsidian-950 transition-all"
+              aria-label="Esegui comando"
+              className="p-2 rounded-lg bg-gold-500/20 text-gold-400 hover:bg-gold-500 hover:text-obsidian-950 transition-all focus-visible:ring-2 focus-visible:ring-gold-400"
             >
               <CornerDownLeft className="w-4 h-4" />
             </button>

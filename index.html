@@ -4,19 +4,120 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#050709" />
     
-    <!-- SEO Meta Tags -->
-    <title>Alessandro Barbato | Full-Stack Developer & AI-Augmented Engineer</title>
-    <meta name="description" content="Portfolio di Alessandro Barbato — Sviluppatore Software & Studente di Informatica UNISA. Progettazione di applicazioni moderne web e integrazione IA avanzata." />
-    <meta name="keywords" content="Alessandro Barbato, Portfolio Developer, Full-Stack Developer Salerno, UNISA Informatica, React, Node.js, AI Developer, C, Java, SQL" />
+    <!-- SEO Primary Meta Tags -->
+    <title>AL3XXDEV | Alessandro Barbato — Sviluppo Siti Web & Full-Stack Developer</title>
+    <meta name="title" content="AL3XXDEV | Alessandro Barbato — Sviluppo Siti Web & Full-Stack Developer" />
+    <meta name="description" content="Sviluppo siti web moderni, veloci e su misura per ristoranti, pizzerie, locali e attività commerciali. Portfolio di Alessandro Barbato — Studente UNISA & Web Developer a Salerno." />
+    <meta name="keywords" content="sviluppo siti web, realizzazione siti web, siti web per ristoranti, siti web pizzerie, siti web bar salerno, web developer salerno, Alessandro Barbato, AL3XXDEV, UNISA informatica, portfolio web developer, React, Tailwind CSS" />
     <meta name="author" content="Alessandro Barbato" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://al3xxdev.netlify.app/" />
 
-    <!-- Google Fonts Import -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://al3xxdev.netlify.app/" />
+    <meta property="og:site_name" content="AL3XXDEV" />
+    <meta property="og:title" content="AL3XXDEV | Alessandro Barbato — Sviluppo Siti Web & Full-Stack Developer" />
+    <meta property="og:description" content="Creo siti web moderni, veloci e personalizzati per ristoranti, locali e attività commerciali. Richiedi un preventivo gratuito." />
+    <meta property="og:image" content="https://al3xxdev.netlify.app/assets/ProfessionalPFP.JPEG" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://al3xxdev.netlify.app/" />
+    <meta name="twitter:title" content="AL3XXDEV | Alessandro Barbato — Sviluppo Siti Web & Full-Stack Developer" />
+    <meta name="twitter:description" content="Creo siti web moderni, veloci e personalizzati per ristoranti, locali e attività commerciali. Richiedi un preventivo gratuito." />
+    <meta name="twitter:image" content="https://al3xxdev.netlify.app/assets/ProfessionalPFP.JPEG" />
+
+    <!-- Google Fonts Preconnect & High-Performance Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Fira+Code:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Fira+Code:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap">
+
+    <!-- Schema.org Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://al3xxdev.netlify.app/#person",
+          "name": "Alessandro Barbato",
+          "alternateName": "AL3XXDEV",
+          "url": "https://al3xxdev.netlify.app/",
+          "image": "https://al3xxdev.netlify.app/assets/ProfessionalPFP.JPEG",
+          "jobTitle": "Web Developer & Software Engineering Student",
+          "email": "al3xx.main1@gmail.com",
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Università degli Studi di Salerno"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Salerno",
+            "addressRegion": "Campania",
+            "addressCountry": "IT"
+          },
+          "sameAs": [
+            "https://github.com/Al3xxDev"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://al3xxdev.netlify.app/#website",
+          "url": "https://al3xxdev.netlify.app/",
+          "name": "AL3XXDEV — Alessandro Barbato Portfolio & Web Development",
+          "publisher": {
+            "@id": "https://al3xxdev.netlify.app/#person"
+          },
+          "inLanguage": ["it-IT", "en-US"]
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://al3xxdev.netlify.app/#service",
+          "name": "AL3XXDEV — Sviluppo Siti Web",
+          "url": "https://al3xxdev.netlify.app/",
+          "provider": {
+            "@id": "https://al3xxdev.netlify.app/#person"
+          },
+          "description": "Realizzazione di siti web personalizzati, veloci e ad alte prestazioni per ristoranti, pizzerie, bar, locali notturni e attività commerciali.",
+          "areaServed": [
+            {
+              "@type": "AdministrativeArea",
+              "name": "Salerno"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Campania"
+            },
+            {
+              "@type": "Country",
+              "name": "Italia"
+            }
+          ],
+          "priceRange": "€€"
+        }
+      ]
+    }
+    </script>
   </head>
   <body class="bg-obsidian-950 text-slate-100 font-sans antialiased selection:bg-gold-500/30 selection:text-gold-400 overflow-x-hidden">
+    <!-- Static Form Definition for Netlify Build Bot Form Discovery -->
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="businessName" />
+      <select name="projectType"></select>
+      <select name="budget"></select>
+      <textarea name="message"></textarea>
+      <input type="checkbox" name="privacyAccepted" />
+      <input name="bot-field" />
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

@@ -3,7 +3,18 @@
 class SoundFX {
   constructor() {
     this.ctx = null;
-    this.enabled = true;
+    let initialEnabled = true;
+    try {
+      if (typeof window !== 'undefined' && window.localStorage) {
+        const stored = window.localStorage.getItem('al3xxdev_audio');
+        if (stored !== null) {
+          initialEnabled = stored === 'true';
+        }
+      }
+    } catch (e) {
+      // LocalStorage access restricted
+    }
+    this.enabled = initialEnabled;
   }
 
   init() {
@@ -20,6 +31,13 @@ class SoundFX {
 
   toggleSound() {
     this.enabled = !this.enabled;
+    try {
+      if (typeof window !== 'undefined' && window.localStorage) {
+        window.localStorage.setItem('al3xxdev_audio', String(this.enabled));
+      }
+    } catch (e) {
+      // LocalStorage access restricted
+    }
     if (this.enabled) {
       this.playChime();
     }

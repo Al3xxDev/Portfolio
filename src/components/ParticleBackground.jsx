@@ -12,14 +12,19 @@ export default function ParticleBackground() {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     const handleResize = () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
+      if (prefersReducedMotion) {
+        drawStatic();
+      }
     };
     window.addEventListener('resize', handleResize);
 
     // 1. Constellation Particles
-    const numParticles = Math.min(Math.floor(window.innerWidth / 16), 75);
+    const numParticles = Math.min(Math.floor(window.innerWidth / 18), prefersReducedMotion ? 30 : 65);
     const particles = [];
     const mouse = { x: null, y: null, radius: 180 };
 
@@ -36,6 +41,24 @@ export default function ParticleBackground() {
       });
     }
 
+    // Static render for users who prefer reduced motion
+    const drawStatic = () => {
+      ctx.clearRect(0, 0, width, height);
+      particles.forEach((p) => {
+        ctx.fillStyle = `${p.color}${p.baseAlpha * 0.6})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    };
+
+    if (prefersReducedMotion) {
+      drawStatic();
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }
+
     // 2. Shooting Comets
     const comets = [];
     const createComet = () => {
@@ -44,7 +67,7 @@ export default function ParticleBackground() {
         y: Math.random() * height * 0.4,
         length: Math.random() * 80 + 50,
         speed: Math.random() * 6 + 4,
-        angle: Math.PI / 4 + (Math.random() - 0.5) * 0.2, // ~45 deg down-right
+        angle: Math.PI / 4 + (Math.random() - 0.5) * 0.2,
         alpha: 1,
         color: Math.random() > 0.5 ? '#d4af37' : '#00f2fe',
       });
@@ -102,8 +125,8 @@ export default function ParticleBackground() {
           const dy = particles[a].y - particles[b].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 140) {
-            const alpha = (1 - dist / 140) * 0.16;
+          if (dist < 130) {
+            const alpha = (1 - dist / 130) * 0.15;
             ctx.strokeStyle = `rgba(212, 175, 55, ${alpha})`;
             ctx.lineWidth = 0.6;
             ctx.beginPath();
@@ -122,17 +145,15 @@ export default function ParticleBackground() {
         if (p.x < 0 || p.x > width) p.vx *= -1;
         if (p.y < 0 || p.y > height) p.vy *= -1;
 
-        // Gravitational Orbital Dance near Cursor
         if (mouse.x !== null && mouse.y !== null) {
           const dx = mouse.x - p.x;
           const dy = mouse.y - p.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < mouse.radius) {
             const force = (mouse.radius - dist) / mouse.radius;
-            // Swirl orbit angle
             p.angle += 0.03;
-            p.x += Math.cos(p.angle) * force * 2.5;
-            p.y += Math.sin(p.angle) * force * 2.5;
+            p.x += Math.cos(p.angle) * force * 2.2;
+            p.y += Math.sin(p.angle) * force * 2.2;
           }
         }
 
@@ -191,7 +212,7 @@ export default function ParticleBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0 opacity-70"
+      className="fixed inset-0 pointer-events-none z-0 opacity-60"
     />
   );
 }

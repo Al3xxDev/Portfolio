@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cpu, Zap, ShieldCheck, Rocket, BookOpen, GraduationCap, Award } from 'lucide-react';
+import { Cpu, Zap, ShieldCheck, Rocket, BookOpen, GraduationCap, Award, Sparkles } from 'lucide-react';
 import { soundFX } from '../utils/sound';
 import TiltCard from './TiltCard';
 
@@ -29,7 +29,7 @@ export default function AboutAI({ t }) {
   ];
 
   return (
-    <section id="about" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="about" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 relative z-10">
       
       {/* Mobile Ambient Glow Spots */}
       <div className="absolute top-1/3 right-0 w-64 h-64 bg-gold-500/10 rounded-full blur-[80px] pointer-events-none" />
@@ -38,14 +38,18 @@ export default function AboutAI({ t }) {
       <div className="max-w-7xl mx-auto flex flex-col gap-12 sm:gap-16">
         
         {/* Section Header */}
-        <div className="text-center flex flex-col items-center gap-2.5">
-          <span className="px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full glass-panel border-gold-500/30 text-[11px] sm:text-xs font-mono text-gold-400 uppercase tracking-widest">
-            {t.about.title}
+        <div className="text-center flex flex-col items-center gap-3">
+          <span className="px-4 py-1.5 rounded-full glass-panel border-gold-500/30 text-xs font-mono text-gold-400 uppercase tracking-widest flex items-center gap-2">
+            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+            <span>{t.about.badge}</span>
           </span>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-100 max-w-3xl leading-snug sm:leading-tight">
-            {t.about.subtitle}
+          <h2 className="text-3xl sm:text-5xl font-display font-bold text-slate-100 max-w-3xl leading-tight">
+            {t.about.title}
           </h2>
-          <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-gold-500 via-emeraldGlow to-cyanGlow rounded-full mt-2" />
+          <p className="text-slate-400 text-sm sm:text-base max-w-2xl font-light leading-relaxed">
+            {t.about.subtitle}
+          </p>
+          <div className="w-20 h-1 bg-gradient-to-r from-gold-500 via-emeraldGlow to-cyanGlow rounded-full mt-2" />
         </div>
 
         {/* Top Split: Bio Card & AI Pillars */}
@@ -59,7 +63,7 @@ export default function AboutAI({ t }) {
 
             <div className="flex flex-col gap-4 relative z-10">
               <span className="text-[11px] sm:text-xs font-mono font-bold text-gold-400 tracking-wider uppercase">
-                ALESSANDRO BARBATO
+                ALESSANDRO BARBATO • SALERNO
               </span>
               <h3 className="text-2xl sm:text-3xl font-display font-extrabold text-slate-100 leading-snug">
                 {t.about.bioTitle}
@@ -69,6 +73,9 @@ export default function AboutAI({ t }) {
               </p>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-light">
                 {t.about.bioText2}
+              </p>
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-light">
+                {t.about.bioText3}
               </p>
             </div>
           </div>
@@ -81,7 +88,7 @@ export default function AboutAI({ t }) {
 
             <div className="flex flex-col gap-2 relative z-10">
               <span className="text-[11px] sm:text-xs font-mono font-bold text-emeraldGlow tracking-wider uppercase">
-                AI SYNERGY & EFFICIENCY
+                ANTIGRAVITY & AI AUGMENTATION
               </span>
               <h3 className="text-2xl sm:text-3xl font-display font-bold text-slate-100">
                 {t.about.aiTitle}
@@ -114,9 +121,9 @@ export default function AboutAI({ t }) {
         </div>
 
         {/* Timeline Section */}
-        <div className="flex flex-col gap-6 sm:gap-8 mt-2">
+        <div className="flex flex-col gap-6 sm:gap-8 mt-4">
           <div className="flex flex-col items-center gap-2 text-center">
-            <GraduationCap className="w-7 h-7 sm:w-8 sm:h-8 text-gold-400" />
+            <GraduationCap className="w-8 h-8 text-gold-400" />
             <h3 className="text-2xl sm:text-3xl font-display font-bold text-slate-100">
               {t.about.timelineTitle}
             </h3>
